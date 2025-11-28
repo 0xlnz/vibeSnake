@@ -1,4 +1,4 @@
-# vibeSnake
+# vibeSnake 🐍
 
 This is a small static snake game intended to be hosted on GitHub Pages.
 
