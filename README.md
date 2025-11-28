@@ -1,11 +1,7 @@
 # vibeSnake 🐍
 
-This is a small static snake game intended to be hosted on GitHub Pages.
-
-How to deploy locally:
-
-1. Ensure you have git access to `https://github.com/lance36/vibeSnake.git`.
-2. From the project root run the deploy commands shown by the assistant.
+This is a small static vibecoded snake game intended to be hosted on GitHub Pages.  
+[Access the game here 🚀](https://0xlnz.github.io/vibeSnake/)
 
 Files:
 - `index.html` — main page
