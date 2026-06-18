@@ -23,7 +23,7 @@ def run():
         
         # 2. Verify Title
         title = page.title()
-        assert "Cute Snake Game" in title
+        assert "Vibe Snake" in title
         print("✅ Title verified.")
         
         # 2. Verify Initial Score
@@ -54,9 +54,8 @@ def run():
         assert game_state_resumed['paused'] == False
         print("✅ Game resumed.")
         
-        # 4. Play a bit 
-        # Move right is default.
-        time.sleep(1)
+        # 4. Play a brief moment and confirm the loop keeps running
+        time.sleep(0.4)
         
         game_state_after = page.evaluate("window.gameState")
         assert game_state_after['running'] == True

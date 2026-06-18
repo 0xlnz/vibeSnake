@@ -51,11 +51,16 @@ def run():
         assert has_dark_class == False
         print("✅ Light mode reverted.")
 
-        # 3. Verify Mouse Control Switch
+        # 3. Verify Control Mode Switching (mouse is the default, so switch to keyboard first)
+        page.locator("input[value='keyboard']").check(force=True)
+        time.sleep(0.2)
+        assert "Arrow Keys" in page.locator("#instructions").inner_text()
+        print("✅ Instructions updated for Keyboard Mode.")
+
         # Select Mouse Mode
         page.locator("input[value='mouse']").check(force=True)
         time.sleep(0.2) # Allow instructions text to update
-        
+
         # Verify Instructions text update
         instructions = page.locator("#instructions").inner_text()
         assert "Move Mouse" in instructions
