@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cute Snake Game</title>
+    <title>Vibe Snake</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Cute Snake 🐍</h1>
+            <h1>Vibe Snake 🐍</h1>
             <div class="top-controls">
                 <div class="volume-control">
                     <button id="muteBtn" class="icon-btn" title="Toggle Sound">🔊</button>
@@ -20,24 +21,32 @@
         </div>
         
         <div class="mode-selector">
-            Control: 
-            <label><input type="radio" name="controlMode" value="keyboard" checked> Keyboard</label>
-            <label><input type="radio" name="controlMode" value="mouse"> Mouse Follow</label>
+            <span>Control:</span>
+            <label><input type="radio" name="controlMode" value="keyboard"> Keyboard</label>
+            <label><input type="radio" name="controlMode" value="mouse" checked> Mouse Follow</label>
+            <label class="walls-label" title="Deadly walls instead of wrap-around (Keyboard mode)"><input type="checkbox" id="wallsToggle"> Walls</label>
         </div>
 
         <div class="score-board">
-            Score: <span id="score">0</span> | High Score: <span id="highScore">0</span>
+            <div class="stat"><span class="stat-label">Score</span><span id="score" class="stat-value">0</span></div>
+            <div class="stat"><span class="stat-label">Best</span><span id="highScore" class="stat-value">0</span></div>
         </div>
-        
+
         <div class="game-area">
-            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <canvas id="gameCanvas" width="560" height="560"></canvas>
+            <div id="boardFlash" class="board-flash"></div>
             <div id="gameOverlay" class="overlay">
+                <div id="gameOverInfo" class="game-over-info hidden">
+                    <p class="final-score-line">Score: <span id="finalScore">0</span></p>
+                    <p id="newRecord" class="new-record hidden">🎉 New High Score! 🎉</p>
+                </div>
                 <button id="startBtn" class="primary-btn big-btn">Start Game</button>
                 <button id="restartBtn" class="primary-btn big-btn" style="display: none;">Play Again</button>
             </div>
         </div>
 
-        <p class="instructions" id="instructions">Use Arrow Keys/WASD to Move | Space to Pause</p>
+        <p class="instructions" id="instructions">Move Mouse to Guide Snake | Space to Pause</p>
+        <p class="legend">🌟 Golden = +5 · 🪨 Rocks are deadly · Power-ups: 🐢 Slow · ✨ Double · 🧲 Magnet</p>
     </div>
     <script src="game.js"></script>
 </body>
